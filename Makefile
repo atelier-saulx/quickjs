@@ -166,7 +166,7 @@ endif
 
 all: $(OBJDIR) $(OBJDIR)/quickjs.check.o $(OBJDIR)/qjs.check.o $(PROGS)
 
-QJS_LIB_OBJS=$(OBJDIR)/quickjs.o $(OBJDIR)/libregexp.o $(OBJDIR)/libunicode.o $(OBJDIR)/cutils.o $(OBJDIR)/quickjs-libc.o $(OBJDIR)/libbf.o 
+QJS_LIB_OBJS=$(OBJDIR)/quickjs.o $(OBJDIR)/libregexp.o $(OBJDIR)/libunicode.o $(OBJDIR)/cutils.o $(OBJDIR)/quickjs-libc.o $(OBJDIR)/libbf.o $(OBJDIR)/quickjs-ws.o 
 
 QJS_OBJS=$(OBJDIR)/qjs.o $(OBJDIR)/repl.o $(QJS_LIB_OBJS)
 ifdef CONFIG_BIGNUM
@@ -174,7 +174,7 @@ QJS_OBJS+=$(OBJDIR)/qjscalc.o
 endif
 
 HOST_LIBS=-lm -ldl -lpthread
-LIBS=-lm
+LIBS=-lm -lcurl -lwebsockets
 ifndef CONFIG_WIN32
 LIBS+=-ldl -lpthread
 endif
